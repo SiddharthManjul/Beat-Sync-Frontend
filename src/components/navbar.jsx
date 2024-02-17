@@ -7,16 +7,9 @@ export default function Navigate() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Events",
+    "Artists",
+    "Places",
   ];
 
   return (
@@ -27,7 +20,7 @@ export default function Navigate() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">Beat Sync</p>
         </NavbarBrand>
       </NavbarContent>
 
