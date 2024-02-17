@@ -22,8 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <ParticleProviders>
           <Providers>
-            <Navigate />
-            {children}
+            <main className="dark text-foreground bg-background">
+              <Navigate />
+              {children}
+            </main>
           </Providers>
         </ParticleProviders>
       </body>

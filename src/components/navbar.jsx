@@ -54,7 +54,7 @@ export default function Navigate() {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} className="bg-white">
+          <Button as={Link} className="bg-black">
             <ParticleConnectStandard />
           </Button>
         </NavbarItem>

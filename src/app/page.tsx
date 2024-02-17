@@ -1,7 +1,8 @@
 import Image from "next/image";
+import SongCard from "../components/songCard"
 
 export default function Home() {
   return (
-    <h1>Homepage</h1>
+    <SongCard />
   );
 }
