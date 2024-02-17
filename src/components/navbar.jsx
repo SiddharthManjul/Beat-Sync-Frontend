@@ -1,16 +1,24 @@
-"use client"
+"use client";
 
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
+import ParticleConnect from "./particleConnect";
+import ParticleConnectStandard from "./particleConnect";
 
 export default function Navigate() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Events",
-    "Artists",
-    "Places",
-  ];
+  const menuItems = ["Events", "Artists", "Places"];
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -46,8 +54,8 @@ export default function Navigate() {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Connect
+          <Button as={Link} className="bg-white">
+            <ParticleConnectStandard />
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -56,7 +64,11 @@ export default function Navigate() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                index === 2
+                  ? "primary"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
               }
               className="w-full"
               href="#"

@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 
-import { AuthType } from "@particle-network/auth-core";
-import { EthereumGoerli } from "@particle-network/chains";
-import {
-  AuthCoreContextProvider,
-  PromptSettingType,
-} from "@particle-network/auth-core-modal";
+import { ModalProvider } from "@particle-network/connect-react-ui"; // @particle-network/connectkit to use Auth Core
+import { WalletEntryPosition } from "@particle-network/auth";
+import { Ethereum, EthereumGoerli } from "@particle-network/chains";
+import { evmWallets } from "@particle-network/connect";
+
 require("dotenv").config();
 
 export default function ParticleProviders({
@@ -19,33 +18,45 @@ export default function ParticleProviders({
   useEffect(() => setMounted(true), []);
   return (
     <React.StrictMode>
-      <AuthCoreContextProvider
+      <ModalProvider
         options={{
-          projectId: process.env.REACT_APP_PROJECT_ID as string,
-          clientKey: process.env.REACT_APP_CLIENT_KEY as string,
-          appId: process.env.REACT_APP_APP_ID as string,
-          authTypes: [AuthType.email, AuthType.google, AuthType.twitter],
-          themeType: "dark",
-          fiatCoin: "USD",
-          language: "en",
-          erc4337: {
-            name: "SIMPLE",
-            version: "1.0.0",
+          projectId: process.env.NEXT_PUBLIC_PROJECT_ID as string,
+          clientKey: process.env.NEXT_PUBLIC_CLIENT_KEY as string,
+          appId: process.env.NEXT_PUBLIC_APP_ID as string,
+          chains: [Ethereum, EthereumGoerli],
+          particleWalletEntry: {
+            //optional: particle wallet config
+            displayWalletEntry: true, //display wallet button when connect particle success.
+            defaultWalletEntryPosition: WalletEntryPosition.BR,
+            supportChains: [Ethereum, EthereumGoerli],
+            customStyle: {}, //optional: custom wallet style
           },
-          promptSettingConfig: {
-            promptPaymentPasswordSettingWhenSign: PromptSettingType.first,
-            promptMasterPasswordSettingWhenLogin: PromptSettingType.first,
+          securityAccount: {
+            //optional: particle security account config
+            //prompt set payment password. 0: None, 1: Once(default), 2: Always
+            promptSettingWhenSign: 1,
+            //prompt set master password. 0: None(default), 1: Once, 2: Always
+            promptMasterPasswordSettingWhenLogin: 1,
           },
-          wallet: {
-            visible: true,
-            customStyle: {
-              supportChains: [EthereumGoerli],
-            },
-          },
+          wallets: evmWallets({
+            projectId: "walletconnect projectId", //replace with walletconnect projectId
+            showQrModal: false,
+          }),
         }}
+        theme={"auto"}
+        language={"en"} //optional:localize, default en
+        walletSort={["Particle Auth", "Wallet"]} //optional:walelt order
+        particleAuthSort={[
+          //optional:display particle auth items and order
+          "email",
+          "phone",
+          "google",
+          "apple",
+          "facebook",
+        ]}
       >
         {mounted && children}
-      </AuthCoreContextProvider>
+      </ModalProvider>
     </React.StrictMode>
   );
 }
