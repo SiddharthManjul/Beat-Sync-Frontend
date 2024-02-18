@@ -27,9 +27,9 @@ export default function Navigate() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
+        {/* <NavbarBrand>
           <p className="font-bold text-inherit">Crowdgroove</p>
-        </NavbarBrand>
+        </NavbarBrand> */}
       </NavbarContent>
 
       {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
