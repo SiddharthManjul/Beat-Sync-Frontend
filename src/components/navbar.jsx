@@ -28,7 +28,7 @@ export default function Navigate() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">Beat Sync</p>
+          <p className="font-bold text-inherit">Crowdgroove</p>
         </NavbarBrand>
       </NavbarContent>
 

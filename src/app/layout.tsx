@@ -8,7 +8,7 @@ import Navigate from "../components/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Beat Sync",
+  title: "Crowd Groove",
   description: "Song Staking Decentralized App for DJs & parties",
 };
 

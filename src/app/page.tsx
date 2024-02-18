@@ -1,8 +1,14 @@
-import Image from "next/image";
-import SongCard from "../components/songCard"
+import React from "react";
+import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
-    <SongCard />
-  );
+    <>
+      <div>
+        <Link href="/List">Enter</Link>
+      </div>
+    </>
+  )
 }
+
+export default Home;
