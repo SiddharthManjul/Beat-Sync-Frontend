@@ -6,13 +6,13 @@ import Image from "next/image";
 const SongAPI = [
   {
     id: 1,
-    image: "../../public/images/starboy.png",
+    image: "/images/starboy.png",
     songName: "Starboy",
     artistName: "The Weekend",
   },
   {
     id: 2,
-    image: "../../public/images/ava.png",
+    image: "/images/purpleLamborghini.jpg",
     songName: "Purple Lamborghini",
     artistName: "Skrillex",
   },
@@ -30,7 +30,7 @@ const SongCard = () => {
                   width="100"
                   height="100"
                   className="rounded-lg"
-                  src={"/image"}
+                  src={image}
                   alt="Images"
                 ></Image>
                 <div className="items-center">
