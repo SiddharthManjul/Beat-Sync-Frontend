@@ -2,7 +2,7 @@ import Image from "next/image";
 import SongCard from "@/components/songCard";
 import { SearchInput } from "@/components/search";
 
-export default function List() {
+const ArtistList = () => {
   return (
     <div>
       <SearchInput defaultValue={null} />
@@ -10,3 +10,6 @@ export default function List() {
     </div>
   );
 }
+
+export default ArtistList;
+

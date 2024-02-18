@@ -5,7 +5,7 @@ import Link from "next/link";
 const AudienceCard = () => {
   return (
     <main>
-      <Link href="/List">
+      <Link href="/artistList">
         <div className="flex justify-center">
           <Image
             width="300"
